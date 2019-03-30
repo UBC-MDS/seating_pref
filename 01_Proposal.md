@@ -38,15 +38,16 @@ Q.4: How actively engaged are you usually in class? (1 being not very engaged, 5
 **Alternative hypothesis**: The competitiveness of a student has affects on their preference on where they usually sit.
 
 We plan to analyze our survey results in the following steps:
+
 **Step 1**:  Exploratory Data Analysis (EDA)
-	- Briefly summarize the main characteristics of variables. 
-	- Adjusted assumption or method if needed.
+- Briefly summarize the main characteristics of variables. 
+- Adjusted assumption or method if needed.
 	
 **Step 2**:  Develop Regression Test in R statistical software
-	- Use a two-tail hypothesis test on our response variable.
-	- Perform Linear Regression test based on the survey results. 
-	- Decide whether to keep interaction terms by conducting Likelihood Ratio Test on different models. 
-	- Interpret the effects of the significant predictor variables.
+- Use a two-tail hypothesis test on our response variable.
+- Perform Linear Regression test based on the survey results. 
+- Decide whether to keep interaction terms by conducting Likelihood Ratio Test on different models. 
+- Interpret the effects of the significant predictor variables.
 
 ### Online Surveys Ethics
 
