@@ -2,11 +2,11 @@
 
 ### Question of interest
 
+Seating location in the classroom is commonly linked to grade performance, student engagement, and learning experience. Nevertheless, the question remains whether certain personality dispositions systematically influence where students prefer to sit in a classroom.
 
+To address this gap in the literature, this study aims to explore the relationship between students' self-reported competitiveness and their seating preference. Specifically, this study will survey 69 Master of Data Science students at the University of British Columbia. The main objective of this survey is to explore the question: **Does self-reported competitiveness influence where an individual prefer to sit in class?**
 
-This study aims to explore the relationship between students' self-perceived competitiveness and their seating preference. Specifically, this study plans to address the question: **Does self-perceived competitiveness influence where an individual prefer to sit in class?**
-
-
+The survey will collect _seating preference_ with the following question:
 
 Where do you prefer to sit in a classroom?
 
@@ -15,9 +15,24 @@ Where do you prefer to sit in a classroom?
 - [ ] Back of the class
 - [ ] Prefer not to respond
 
+The survey will measure _self-reported competitiveness_ with the following three questions:
+
+Do you enjoy competing against others?
+Do you like situations in which you compete with others?
+Do you prefer competing with others when pursuing a goal over pursuing the goal alone?
+
+Participants will answer these questions Using a 5-point Likert scale, with 1 being "very much not so", and 5 being "very much so".
+
 ### Potential confounds
 
 
+
+What gender do you identify with?
+
+- [ ] Male
+- [ ] Female
+- [ ] Other
+- [ ] Prefer not to respond
 
 What gender do you identify with?
 
@@ -51,3 +66,6 @@ We plan to analyze our survey results in the following steps:
 All online survey data will be stored and accessed in Canada only and will be destroyed upon completition of this project. 
 No private information (such as names, IP address, or any information that can identify someone) will be collected in the survey. 
 A consent form/cover letter will be issued.
+
+### References
+
