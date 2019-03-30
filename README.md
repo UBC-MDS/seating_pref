@@ -18,4 +18,4 @@ Seating location is commonly linked to grade performance, student engagement, an
 
 | Milestone | Description |
 | - | - |
-| Milestone 1 | [Proposal](https://github.com/UBC-MDS/seating_pref/doc/proposal.md) |
+| Milestone 1 | [Proposal](https://github.com/UBC-MDS/seating_pref/blob/master/doc/proposal.md) |
