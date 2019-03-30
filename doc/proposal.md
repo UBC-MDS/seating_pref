@@ -4,7 +4,7 @@
 
 Seating location in the classroom is commonly linked to grade performance, student engagement, and learning experience (Gowan et al., 2017; Shernoff, et al., 2017). Nevertheless, the question remains whether certain personality dispositions systematically influence where students prefer to sit in a classroom.
 
-To address this gap in the literature, this study aims to explore the relationship between students' self-reported competitiveness and their seating preference. Specifically, this study will survey 69 Master of Data Science students at the University of British Columbia. The main objective of this survey is to explore the question: **Does self-reported competitiveness influence where an individual prefer to sit in class?**
+To address this gap in the literature, this study aims to explore the relationship between students' self-reported competitiveness and their seating preference. Specifically, this study will survey 69 Master of Data Science students at the University of British Columbia. The main objective of this survey is to explore the question: **Does self-reported competitiveness influence where an individual prefers to sit in class?**
 
 The survey will measure _self-reported competitiveness_ with the following two questions (adapted from Bönte, Lombardo, & Urbig, 2017):
 
