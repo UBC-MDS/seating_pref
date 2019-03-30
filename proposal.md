@@ -2,11 +2,11 @@
 
 ### Main question of interest
 
-Seating location in the classroom is commonly linked to grade performance, student engagement, and learning experience. Nevertheless, the question remains whether certain personality dispositions systematically influence where students prefer to sit in a classroom.
+Seating location in the classroom is commonly linked to grade performance, student engagement, and learning experience (Gowan et al., 2017; Shernoff, et al., 2017). Nevertheless, the question remains whether certain personality dispositions systematically influence where students prefer to sit in a classroom.
 
 To address this gap in the literature, this study aims to explore the relationship between students' self-reported competitiveness and their seating preference. Specifically, this study will survey 69 Master of Data Science students at the University of British Columbia. The main objective of this survey is to explore the question: **Does self-reported competitiveness influence where an individual prefer to sit in class?**
 
-The survey will measure _self-reported competitiveness_ with the following two questions:
+The survey will measure _self-reported competitiveness_ with the following two questions (adapted from Bönte, Lombardo, & Urbig, 2017):
 
 **Q1**: Do you enjoy situations in which you compete with others?
 
@@ -25,7 +25,7 @@ The survey will collect _seating preference_ with the following question:
 
 ### Potential confounds
 
-Gender has been directly linked to both student seating, and competitiveness. For this reason, the survey will also collect _gender_ using the following question: 
+Gender has been directly linked to both student seating (Shernoff, et al., 2017), and competitiveness (Buser, Niederle, & Oosterbeek, 2012). For this reason, the survey will also collect _gender_ using the following question: 
 
 **Q4**: What gender do you identify with?
 
@@ -34,13 +34,13 @@ Gender has been directly linked to both student seating, and competitiveness. Fo
 - [ ] Other
 - [ ] Prefer not to respond
 
-Students who sit in the back of the classroom are found to be less engaged, while competitive individuals are typically more engaged in a task. The survey will therefore measure _student engagement_ as a potential confound, using the following questions:
+Students who sit in the back of the classroom are found to be less engaged (Shernoff, et al., 2017), while competitive individuals are typically more engaged in a task (Karatepe & Olugbade, 2009). The survey will therefore measure _student engagement_ as a potential confound, using the following questions (adapted from Shernoff, et al., 2017):
 
-**Q5**: Did you enjoy what you were doing in the MDS program?
+**Q5**: Did you enjoy what you were doing in the MDS program? (enjoyment)
 
-**Q6**: Do you often find your mind wander off in class? (reverse coded)
+**Q6**: Do you often find your mind wander off in class? (reverse coded) (concentration)
 
-**Q7**: Do you find the course content in MDS to be interesting?
+**Q7**: Do you find the course content in MDS to be interesting? (interest)
 
 These questions will be answered using a 5-point Likert scale, with 1 being "very much not so", and 5 being "very much so". The average score of these questions will be used as a measurement for _engagement_.
 
@@ -74,5 +74,12 @@ Even though no personal information is being collected, the survey will be hoste
 
 ### References
 
+Buser, T., Niederle, M., & Oosterbeek, H. (2012). Gender, Competitiveness and Career Choices. National Bureau of Economic Research Working Paper Series, 18576. doi:10.3386/w18576
 
+Bönte, W., Lombardo, S., & Urbig, D. (2017). Economics meets psychology: Experimental and self-reported measures of individual competitiveness. Personality and Individual Differences, 116, 179-185. doi:10.1016/j.paid.2017.04.036
 
+Gowan, A. M., Hanna, P., Greer, D., Busch, J., & Anderson, N. (2017). Learning to program - does it matter where you sit in the lecture theatre? 2017 40th International Convention on Information and Communication Technology, Electronics and Microelectronics (MIPRO). doi:10.23919/mipro.2017.7973500
+
+Karatepe, O. M., & Olugbade, O. A. (2009). The effects of job and personal resources on hotel employees’ work engagement. International Journal of Hospitality Management, 28(4), 504-512. doi:10.1016/j.ijhm.2009.02.003
+
+Shernoff, D. J., Sannella, A. J., Schorr, R. Y., Sanchez-Wall, L., Ruzek, E. A., Sinha, S., & Bressler, D. M. (2017). Separate worlds: The influence of seating location on student engagement, classroom experience, and performance in the large university lecture hall. Journal of Environmental Psychology, 49, 55-64. doi:10.1016/j.jenvp.2016.12.002
