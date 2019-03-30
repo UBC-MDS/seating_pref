@@ -60,13 +60,15 @@ We will perform linear regression on the survey results, using _seating preferen
 
 **Step 3**: Limitations
 
-The current study is observational and exploratory in nature, so we cannot make any _causal_ claims about the survey results. We will make apparent on additional limitations and generalizability of this study.
+The current study is observational and exploratory in nature, as such we cannot make any _causal_ claims about the survey results. We will make apparent on additional limitations and generalizability of this study.
 
 ### Ethics and other considerations
 
-All online survey data will be stored and accessed in Canada only and will be destroyed upon completition of this project. 
-No private information (such as names, IP address, or any information that can identify someone) will be collected in the survey. 
-A consent form/cover letter will be issued.
+This study will not be collecting identifiable information such as student numbers, IP address, etc. There will be indirect identifiers collected during the survey such as gender, preferred seating location and level of personal engagement. We expect a high level of k-anonymity among the majority of gender responses and understand outliers may need to be removed in risk of identifying an individual. The indirect identifier, seating location, should have high k-anonymity as we are breaking the locations into thhree major areas. If the data was collected at a finer scale such as row number this has a higher probability of potentially identifying individuals when combined with other information. The engagement variable will also have high k-anonymity as there will be five rankings for the participant to rank themselves. If any of the ranks have only a few values they may need to be generalized to ensure privacy.
+
+Even though no personal information is being collected, the survey will be hosted within Canada and comply with relevant sections of British Columbia Freedom of Information and Protection of Privacy Act (FOIPPA). If the survey data needs to be made publicly available, it will be reviewed and any potential identifiable information will be removed prior to release. At the beginning of the survey a consent form will be presented to the participant which must be accepted for the participant to continue the survey.
 
 ### References
+
+
 
