@@ -1,18 +1,21 @@
-# DSCI554_ABGS
-554_Survey_Project
+# Competitiveness and seating preference
+
+A DSCI-554 collaborative science project.
 
 ### Contributors
+
 - [Ayla Pearson](https://github.com/aylapear)
 - [Bonnie Zhang](https://github.com/zxzzhangg)
 - [George Wu](https://github.com/GeorgeJJW)
 - [Socorro Dominguez](https://github.com/sedv8808)
 
 
-### Purpose 
-During Block 6, we will be conducting a small survey and asses if a particular personality trait can influence an individual's choice and we will analyze this by implementing some statistical tools.
+### Project overview
 
-Limitations are: We are surveying under 100 individuals that are not neccessarily independently distributed.
+Seating location is commonly linked to grade performance, student engagement, and learning experience. Nevertheless, the question remains whether certain personality dispositions systematically influence where students prefer to sit in a classroom. This project aims to explore the question: **Does self-reported competitiveness influence where an individual prefer to sit in class?**
 
-### Research Question: 
-*Does self-perceived competitiveness of an individual influence where they prefer to sit in class?*
+### Deliverables
 
+| Milestone | Description |
+| - | - |
+| Milestone 1 | [Proposal](https://github.com/UBC-MDS/seating_pref/doc/proposal.md) |
