@@ -6,7 +6,7 @@ At this time, contributions are only accepted by team members. We will open cont
 
 If you find any bugs and you would want us to solve them, kindly open an "Issue" on this Github respository.
 
-For `Milestone 1` team members will add any changes via `forking`:
+You can contribute via `forking`:
 
 #### How to fork?
 Go to the main respository [here](https://github.com/UBC-MDS/seating_pref).
