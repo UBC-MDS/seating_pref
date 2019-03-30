@@ -12,7 +12,7 @@ The survey will measure _self-reported competitiveness_ with the following two q
 
 **Q2**: Do you prefer competing with others when pursuing a goal over pursuing the goal alone?
 
-Participants will answer these two questions using a 5-point Likert scale, with 1 being "very much not so", and 5 being "very much so". The average score of these two questions will be used as a measurement for competitiveness.
+Participants will answer these two questions using a 5-point Likert scale, with 1 being "very much not so", and 5 being "very much so". The average score of these two questions will be used as a measurement for _competitiveness_.
 
 The survey will collect _seating preference_ with the following question:
 
@@ -36,9 +36,13 @@ Gender has been directly linked to both student seating, and competitiveness. Fo
 
 Students who sit in the back of the classroom are found to be less engaged, while competitive individuals are typically more engaged in a task. The survey will therefore measure _student engagement_ as a potential confound, using the following questions:
 
-**Q5**: 
+**Q5**: Did you enjoy what you were doing in the MDS program?
 
-These questions will be answered using a 5-point Likert scale, with 1 being "very much not so", and 5 being "very much so". The average score of these two questions will be used as a measurement for student engagement.
+**Q6**: Do you often find your mind wander off in class? (reverse coded)
+
+**Q7**: Do you find the course content in MDS to be interesting?
+
+These questions will be answered using a 5-point Likert scale, with 1 being "very much not so", and 5 being "very much so". The average score of these questions will be used as a measurement for _engagement_.
 
 ### Plan of analysis
 
@@ -50,7 +54,7 @@ The current study hypothesizes that:
 
 Survey results will be analyzed in the following steps:
 
-**Step 1**:  Exploratory Data Analysis (EDA)
+**Step 1**:  Exploratory Data Analysis
 
 We will examine the distribution of each variable, handle missing values, and perform transformations as necessary.
 	
@@ -60,7 +64,7 @@ We will perform linear regression on the survey results, using _seating preferen
 
 **Step 3**: Limitations
 
-The current study is observational and exploratory in nature, as such we cannot make any _causal_ claims about the survey results. We will make apparent on additional limitations and generalizability of this study.
+The current study is observational and exploratory in nature, as such, we cannot make any _causal_ claims about the survey results. We will make apparent on additional limitations and generalizability of this study.
 
 ### Ethics and other considerations
 
