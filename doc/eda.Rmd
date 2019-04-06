@@ -12,6 +12,7 @@ We compiled the seating preference, self-reported competitiveness, gender, as we
 ```{r load libraries}
 # load libraries
 suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(gridExtra))
 library(apaTables)
 ```
 
@@ -37,14 +38,24 @@ We offered the option for participants not to respond to certain survey question
 
 ```{r evaluate missing data}
 # re-encode "prefer not to response" (level 4) as missing data
-df$seat_pref <- df$seat_pref %>% fct_recode(NULL = "4")
-df$gender <- df$gender %>% fct_recode(NULL = "4")
+df$seat_pref <- df$seat_pref %>% 
+  fct_recode("Front" = "1", 
+             "Middle" = "2", 
+             "Back" = "3",  
+             NULL = "4")
+
+df$gender <- df$gender %>% 
+  fct_recode("Man" = "1",
+             "Woman" = "2",
+             NULL = "4")
 
 # evaluate missing data
 df %>% summary()
 ```
 
 We are missing 4 entries for `seating preference`, 5 entries for `gender`, as well as 1 entry for `engagement`. As we do not have enough information to meaningfully impute these missing values, we will simply drop these missing records from the dataset.
+
+Note also that there were no participants that identified with genders other than man or woman.
 
 ```{r drop missing data}
 # drop missing data
@@ -72,6 +83,62 @@ It appears that self-reported competitiveness is rather weakly and positively as
 
 ## Univariate analysis
 
-Let's take a closer look at each variable individually.
+Let's take a closer look at each variable individually. Specifically, let's visualize the distribution of each variable.
+
+```{r visualize univariate distribution}
+# visualize seating preference
+g31 <- df %>%   
+  ggplot(aes(x = seat_pref)) +
+  geom_bar() +
+  theme_minimal() +
+  xlab("Seating preference") +
+  ylab("Number of people")
+
+# visualize competitiveness
+g32 <- df %>% 
+  ggplot(aes(x = comp)) +
+  geom_histogram(bins = 5, binwidth = 1) +
+  theme_minimal() +
+  xlab("Self-reported competitiveness") +
+  ylab("Number of people")
+
+# visualize gender
+g33 <- df %>%   
+  ggplot(aes(x = gender)) +
+  geom_bar() +
+  theme_minimal() +
+  xlab("Gender") +
+  ylab("Number of people")
+
+# visualize engagement
+g34 <- df %>% 
+  ggplot(aes(x = engage)) +
+  geom_histogram(binwidth = 1) +
+  theme_minimal() +
+  xlab("Engagement") +
+  ylab("Number of people")
+
+# display distribution of each variable
+grid.arrange(g31, g32, g33, g34)
+```
+
+We can also examine each variable numerically.
+
+```{r descriptive univariate statistics}
+# obtain descriptive statistics of each variable
+df %>% summary()
+```
+
+Both visual and numeric examinations of each variable has led to the following observations:
+
+Many participants prefer to sit in the middle of the classroom (n = 26), and fewer participants prefer sitting in the front (n = 18), or in the back (n = 12). Note that the number of participants in each response level is somewhat unbalanced.
+
+The distribution of self-reported competitiveness is largely normal with a mean of 3. There are very few (less than five) participants with a score of 1 or with a score of 5.
+
+There are slightly more self-identified men (n = 33) than self-identified women (n = 23) being included in the current analysis. The number of each gender is very roughly balanced (not terribly unbalanced).
+
+The distribution of engagement level is slightly left-skewed with a mean of about 3.7. There are no participants associated with a score below 1. We believe the skewness of this distribution does not warrant major data transformations.
+
+## Bivariate analysis
 
 
