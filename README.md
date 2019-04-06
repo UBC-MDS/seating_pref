@@ -20,7 +20,7 @@ This project uses the survey that is hosted using UBC Survey tool, and can be ac
 
 ### Dataset
 
-This project uses that the dataset that is hosted [here](https://github.ubc.ca/sedv8808/seat_pref_survey/blob/master/data/seat_tidy.csv). 
+This project uses that a dataset that is hosted [here](https://github.ubc.ca/sedv8808/seat_pref_survey/blob/master/data/seat_tidy.csv). 
 
 A full description of the dataset can be found [here](https://github.ubc.ca/sedv8808/seat_pref_survey).
 
