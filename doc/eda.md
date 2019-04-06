@@ -453,12 +453,7 @@ distribution of each variable in the dataset, as well as the
 relationship and potential interactions among these variables, and
 transformed the variables as necessary.
 
-Using both visual and numeric examinations, we mainly observed that
-suggest that:
-
-Participants who rated themselves to more competitive tend to prefer to
-sit in either the front or back of the classroom, especially when they
-are also highly-engaged in the content of the class.
+Using both visual and numeric examinations, we mainly observed that:
 
   - Participants who rated themselves to more competitive tend to prefer
     sitting in either the front or back of the classroom, whereas
