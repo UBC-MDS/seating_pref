@@ -29,4 +29,4 @@ A full description of the dataset can be found [here](https://github.ubc.ca/sedv
 | Milestone | Description |
 | - | - |
 | Milestone 1 | [Proposal](https://github.com/UBC-MDS/seating_pref/blob/master/doc/proposal.md) |
-| Milestone 2 | [EDA](https://github.com/UBC-MDS/seating_pref/blob/compile/doc/eda.md) |
+| Milestone 2 | [EDA](https://github.com/UBC-MDS/seating_pref/blob/master/doc/eda.md) |

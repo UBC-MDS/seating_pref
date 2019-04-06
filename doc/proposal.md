@@ -60,7 +60,7 @@ We will examine the distribution of each variable, handle missing values, and pe
 	
 **Step 2**:  Statistical modelling in R
 
-We will perform linear regression on the survey results, using _seating preference_ as the response, and using _self-reported competitiveness_ with other confounds variables as the co-variates. We will decide the appropriateness of including interaction terms by comparing different regression models. We will use t-test to determine whether the regression coefficient for _competitiveness_ is significantly different from zero, thereby evaluating its effects on _seating preference_.
+We will attempt to fit a generalized linear model to the survey results, using _seating preference_ as the response, and using _self-reported competitiveness_ with other confounds variables as the co-variates. We will decide the appropriateness of including interaction terms by comparing different regression models. We will use t-test to determine whether the regression coefficient for _competitiveness_ is significantly different from zero, thereby evaluating its effects on _seating preference_.
 
 **Step 3**: Limitations
 
