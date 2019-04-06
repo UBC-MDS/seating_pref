@@ -3,9 +3,9 @@
 
 ### How to contribute
 
- To contribute to the project do not work in the master repository. Changes can be made to the master repository through pull requests from either a fork or a branch. When you want to submit new work that you developed, you must push all your changes to your fork or branch. Then, please send a `pull request`.
+ To contribute to the project do not make changes directly in the master repository. Changes can be made to the master repository through pull requests from a fork or branch. When you want to submit new work that you developed, you must push all your changes to your fork or branch. Then, please send a `pull request`.
 
- Another team member will review the pull request and accept the request. For more important pull requests more than one team member should review the work before accepting the request.
+ Another team member will review the pull request and accept it. Some pull requests may require review from multiple team members.
 
 At this time, contributions are only accepted by team members. If you find any bugs and you would want us to solve them, kindly open an "Issue" on this Github respository.
 
