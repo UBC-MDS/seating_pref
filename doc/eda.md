@@ -1,6 +1,10 @@
 Investigate: Competitiveness and seating preference
 ================
 
+Investigators: Ayla Pearson, Bonnie Zhang, George Wu, Socorro Dominguez
+
+Date: April 6th, 2019
+
 The current analysis seeks to explore the relationship between
 `self-reported competitiveness` and `seating preference` in a classroom.
 We also want to determine whether this relationship is confounded by an
@@ -128,12 +132,14 @@ cor(x = df$comp, y = df$engage, method = "pearson")
 It appears that self-reported competitiveness is rather weakly and
 positively associated with engagement level. This association is weak
 enough that we needn’t worry too much about multicollinearity issues for
-this dataset. They seem to be indeed measuring different contructs.
+this dataset. They seem to be indeed measuring different constructs.
 
 ## Univariate analysis
 
 Let’s take a closer look at each variable individually. Specifically,
 let’s visualize the distribution of each variable.
+
+#### Visual univariate analysis
 
 ``` r
 # visualize seating preference
@@ -174,6 +180,8 @@ grid.arrange(g31, g32, g33, g34)
 
 ![](eda_files/figure-gfm/visualize%20univariate%20distribution-1.png)<!-- -->
 
+#### Numerical univariate analysis
+
 We can also examine each variable numerically.
 
 ``` r
@@ -211,4 +219,275 @@ of about 3.7. There are no participants associated with a score below 1.
 We believe the skewness of this distribution does not warrant major data
 transformations.
 
-## Bivariate analysis
+#### Transformation: seating preference as a binary variable
+
+To address the unbalanced nature of the `seat_pref` variable, it might
+be helpful to further consolidate the levels of seating preference.
+Specifically, we will bin the levels of `Front` and `Back` to a new
+level called `Not-middle`. This new binary seating preference variable
+will be used along side our original `seat_pref` for additional
+comparisons.
+
+``` r
+# bin front/back to a new level "not-middle"
+df$seat_pref_binary <- df$seat_pref %>% 
+  fct_collapse("Not-middle" = c("Front", "Back"))
+
+df %>% 
+  group_by(seat_pref_binary) %>% 
+  summarise(n = n())
+```
+
+    ## # A tibble: 2 x 2
+    ##   seat_pref_binary     n
+    ##   <fct>            <int>
+    ## 1 Not-middle          30
+    ## 2 Middle              26
+
+This new binary seating preference variable is now more balanced, with
+more than 26 participants in each level.
+
+## Multivariate analysis
+
+Let’s turn our attention to the relationship among the variables. Recall
+that we are most interested in the relationship between seating
+preference (`seat_pref`) and self-reported competitiveness (`comp`).
+
+#### Seating preference and competitiveness
+
+Let’s visualize the relationship between these two variables.
+
+``` r
+# visualize seat_pref and competitiveness
+g41 <- df %>% 
+  ggplot(aes(x = seat_pref, y = comp)) +
+  geom_boxplot() +
+  coord_flip() +
+  xlab("Seating preference") +
+  ylab("Competitiveness") +
+  ggtitle("Seating preference and self-reported competitiveness") +
+  theme_minimal()
+
+# visualize binary seat_pref and competitiveness
+g42 <- df %>% 
+  ggplot(aes(x = seat_pref_binary, y = comp)) +
+  geom_boxplot() +
+  coord_flip() +
+  xlab("Seating preference") +
+  ylab("Competitiveness") +
+  ggtitle("Seating preference (binary) and self-reported competitiveness") +
+  theme_minimal()
+
+# display plots
+grid.arrange(g41, g42, ncol = 1)
+```
+
+![](eda_files/figure-gfm/visualize%20seat_pref%20and%20comp-1.png)<!-- -->
+
+Let’s also examine the relationship between these two variables
+numerically.
+
+``` r
+# numeric analysis for original seat_pref
+df %>% 
+  group_by(seat_pref) %>% 
+  summarise(n = n(),
+            mean_competitiveness = mean(comp),
+            sd_competitiveness = sd(comp))
+```
+
+    ## # A tibble: 3 x 4
+    ##   seat_pref     n mean_competitiveness sd_competitiveness
+    ##   <fct>     <int>                <dbl>              <dbl>
+    ## 1 Front        18                 3.11              0.979
+    ## 2 Middle       26                 3.06              0.983
+    ## 3 Back         12                 3.46              1.20
+
+``` r
+# numeric analysis for binary seat_pref
+df %>% 
+  group_by(seat_pref_binary) %>% 
+  summarise(n = n(),
+            mean_competitiveness = mean(comp),
+            sd_competitiveness = sd(comp))
+```
+
+    ## # A tibble: 2 x 4
+    ##   seat_pref_binary     n mean_competitiveness sd_competitiveness
+    ##   <fct>            <int>                <dbl>              <dbl>
+    ## 1 Not-middle          30                 3.25              1.06 
+    ## 2 Middle              26                 3.06              0.983
+
+Both visual and numeric examinations of these two variable has led to
+the following observations:
+
+There are a wide variation of self-reported competitiveness within each
+category of seating preference, as suggested by the relatively high
+standard deviation (sd) of competitiveness for each category.
+
+A faint pattern seems to be: participants who reported to be more
+competitive tend to prefer to sit in either the front or back of the
+classroom, whereas participants who reported to be less competitive seem
+to prefer to sit in the middle of the classroom. Using the new binary
+`seat_pref` can largely reflect this pattern as well.
+
+To simplify downstream analysis, we will replace the original
+three-level `seat_pref` variable with our new binary `seat_pref_binary`
+variable.
+
+#### Seating preference and competitiveness with gender
+
+``` r
+# visualize seat_pref and competitiveness with gender 
+df %>% 
+  ggplot(aes(y = comp, x = seat_pref_binary)) +
+  geom_boxplot() +
+  coord_flip() +
+  facet_wrap(~gender, ncol = 1) +
+  xlab("Seating preference") +
+  ylab("Competitiveness") +
+  ggtitle("Seating preference and self-reported competitiveness by gender") +
+  theme_minimal()
+```
+
+![](eda_files/figure-gfm/visualize%20seat_pref%20and%20comp%20by%20gender-1.png)<!-- -->
+
+``` r
+df %>% 
+  group_by(seat_pref_binary, gender) %>% 
+  summarise(n = n(),
+            mean_competitiveness = mean(comp),
+            sd_competitiveness = sd(comp))
+```
+
+    ## # A tibble: 4 x 5
+    ## # Groups:   seat_pref_binary [2]
+    ##   seat_pref_binary gender     n mean_competitiveness sd_competitiveness
+    ##   <fct>            <fct>  <int>                <dbl>              <dbl>
+    ## 1 Not-middle       Man       20                 3.25              1.13 
+    ## 2 Not-middle       Woman     10                 3.25              0.979
+    ## 3 Middle           Man       13                 3.08              0.997
+    ## 4 Middle           Woman     13                 3.04              1.01
+
+Both visual and numerical examinations suggests that gender does not
+seem to greatly influence the relationship between competitiveness and
+seating preference. People who rated themselves to be more competitive
+tend to prefer not to sit in the middle of the class, for both genders.
+
+#### Seating preference and competitiveness with engagement
+
+To facilitate and further simplify comparisons, we will categorize
+participants with either high or low engagement using the median
+engagement score.
+
+``` r
+# sort median engagement
+median_engage = median(df$engage)
+
+# categorize  engagement
+df <- df %>% 
+  mutate(engage_binary = if_else(engage > median_engage, "Highly-engaged", "Lowly-engaged"))
+
+# convert to factor
+df$engage_binary <- factor(df$engage_binary)
+
+df %>%
+  group_by(engage_binary) %>% 
+  summarise(n = n())
+```
+
+    ## # A tibble: 2 x 2
+    ##   engage_binary      n
+    ##   <fct>          <int>
+    ## 1 Highly-engaged    25
+    ## 2 Lowly-engaged     31
+
+We can then visualize the engagement along with seating preference and
+competitiveness.
+
+``` r
+# visualize seat_pref and competitiveness with gender 
+df %>% 
+  ggplot(aes(y = comp, x = seat_pref_binary)) +
+  geom_boxplot() +
+  coord_flip() +
+  facet_wrap(~engage_binary, ncol = 1) +
+  xlab("Seating preference") +
+  ylab("Competitiveness") +
+  ggtitle("Seating preference and self-reported competitiveness by engagement") +
+  theme_minimal()
+```
+
+![](eda_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+
+``` r
+df %>% 
+  group_by(seat_pref_binary, engage_binary) %>% 
+  summarise(n = n(),
+            mean_competitiveness = mean(comp),
+            sd_competitiveness = sd(comp))
+```
+
+    ## # A tibble: 4 x 5
+    ## # Groups:   seat_pref_binary [2]
+    ##   seat_pref_binary engage_binary      n mean_competitiven… sd_competitiven…
+    ##   <fct>            <fct>          <int>              <dbl>            <dbl>
+    ## 1 Not-middle       Highly-engaged    15               3.47            1.22 
+    ## 2 Not-middle       Lowly-engaged     15               3.03            0.876
+    ## 3 Middle           Highly-engaged    10               2.75            1.14 
+    ## 4 Middle           Lowly-engaged     16               3.25            0.856
+
+Both visual and numerical examinations suggests that engagement does
+somewhat influence the relationship between competitiveness and seating
+preference. People who rated themselves to be more competitive tend to
+prefer not to sit in the middle of the class, especially they are also
+highly-engaged. Interestingly, some competitive participants who are not
+typically engaged in the class content, prefer sitting in the middle of
+class instead.
+
+## Summary
+
+The current analysis aims to explore the relationship between
+self-reported competitiveness and seating preference. We examined the
+distribution of each variable in the dataset, as well as the
+relationship and potential interactions among these variables, and
+transformed the variables as necessary.
+
+Using both visual and numeric examinations, we mainly observed that
+suggest that:
+
+Participants who rated themselves to more competitive tend to prefer to
+sit in either the front or back of the classroom, especially when they
+are also highly-engaged in the content of the class.
+
+  - Participants who rated themselves to more competitive tend to prefer
+    sitting in either the front or back of the classroom, whereas
+    participants who rated themselves to less competitive tend to prefer
+    sitting in the middle of the classroom.
+
+  - Gender does not seem to influence the relationship between
+    self-reported competitiveness and seating preference.
+
+  - Some participants who rated themselves to be more competitive prefer
+    sitting in the middle of the class instead, if they are not engaged
+    in the course content.
+
+The current investigations suffer from a number of limitations,
+specifically:
+
+  - Participants are allowed to choose multiple seating preference, this
+    means a small number of entries actually contain duplicated
+    information. In other words, we actually have less information that
+    we believe.
+
+  - The observed effect size of competitiveness across each level of
+    seating preference is quite small. Furthermore, the variation of
+    competitiveness is quite large within each category of seating
+    preference.
+
+  - To simplify comparisons, we somewhat arbitrarily binarized the
+    seating preference variable, as well as the engagement variable.
+    Doing so can diminish the already weak effect size.
+
+This investigation is largely exploratory in nature, and will require
+further more robust statistical analyzes downstream.
