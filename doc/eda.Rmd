@@ -1,0 +1,77 @@
+---
+title: "Investigate: Competitiveness and seating preference"
+output: github_document
+---
+
+The current analysis seeks to explore the relationship between `self-reported competitiveness` and `seating preference` in a classroom. We also want to determine whether this relationship is confounded by an individual's `gender` or `enagement` level. Toward this goal, we constructed a [survey](https://ubc.ca1.qualtrics.com/jfe/form/SV_d1ex7dheBUxPGPb), and collected responses from individuals affiliated with the Master of Data Science program at the University of British Columbia.
+
+## Data ingestion
+
+We compiled the seating preference, self-reported competitiveness, gender, as well as engagement information from 64 survey entries. A full description of the dataset and ingestion procedures can be found [here](https://github.ubc.ca/sedv8808/seat_pref_survey).
+
+```{r load libraries}
+# load libraries
+suppressPackageStartupMessages(library(tidyverse))
+library(apaTables)
+```
+
+```{r load data, message = FALSE}
+# load data
+df <- read_csv("../seat_tidy.csv")
+
+# convert categorical variables to factors
+df <- df %>% 
+  mutate_at(c("seat_pref", "gender"), factor)
+
+# preview data
+df %>% head()
+```
+
+Note that the column `seat-pref` corresponds to seating preference, `comp` corresponds to self-reported competitiveness, `gender` corresponds to gender, and `engage` corresponds to an individual's engagement level.
+
+## Data overview
+
+#### Missing data
+
+We offered the option for participants not to respond to certain survey questions. We will simply consider these omitted responses as missing values.  
+
+```{r evaluate missing data}
+# re-encode "prefer not to response" (level 4) as missing data
+df$seat_pref <- df$seat_pref %>% fct_recode(NULL = "4")
+df$gender <- df$gender %>% fct_recode(NULL = "4")
+
+# evaluate missing data
+df %>% summary()
+```
+
+We are missing 4 entries for `seating preference`, 5 entries for `gender`, as well as 1 entry for `engagement`. As we do not have enough information to meaningfully impute these missing values, we will simply drop these missing records from the dataset.
+
+```{r drop missing data}
+# drop missing data
+df <- df %>% drop_na()
+df %>% dim()
+```
+
+We have 56 remaining records after removing the missing information.
+
+#### Variable scaling
+
+Both continuous variables, `comp` and `engage`, were measured using a 5-point Likert scale, as such, there should be no scaling issues for these two variables.
+
+#### Multicollinearity
+
+We want to make sure that the two continuous variables, namely the competitiveness variable (`comp`) and the engagement variable (`engage`), are not measuring the same psychological construct. For this reason, we will examine the Pearson correlation coefficient between these two variables.
+
+```{r evaluate multicollinearity}
+# evaluate correlation between comp and engage
+# note that for EDA, we are not calculating the p-value for this coefficient
+cor(x = df$comp, y = df$engage, method = "pearson")
+```
+
+It appears that self-reported competitiveness is rather weakly and positively associated with engagement level. This association is weak enough that we needn't worry too much about multicollinearity issues for this dataset. They seem to be indeed measuring different contructs.
+
+## Univariate analysis
+
+Let's take a closer look at each variable individually.
+
+
