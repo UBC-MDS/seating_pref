@@ -4,7 +4,13 @@ author: "Seating Preference Team"
 date: '2019-04-10'
 output: github_document
 ---
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+```
 # Milestone 3: Final Report
 
 ### Main question of interest
@@ -46,24 +52,22 @@ Given this, we decided to use a second Linear Regression Model that would reflec
 
 # MODEL 2 (Interaction Model - Bonnie)
 MODEL 2 is a three-way interaction logistic regression model. 
-```
-model2 <- glm.fit <- glm(seat_pref_binary ~ comp*engage*gender, data = data, family = "binomial")
+```{r, echo = FALSE}
+data = read.csv('~/Documents/554_exper/seat_pref_survey/data/seat_clean.csv')
+data$seat_pref_binary <- as.factor(data$seat_pref_binary)
+model2 <- glm(seat_pref_binary ~ comp*engage*gender, data = data, family = "binomial")
 ```
 This model includes all the two-way and three-way interaction terms of one main predictor(`comp`) and two confounding variables(`engage` and `gender`). This model doesn't fit our data so well since the effects of all these coefficients are not significant. However, it captures some traits that we observed from EDA.
 
-
 The following data is a summary table of MODEL 2 containing Estimate, LCL(lower bound of a 95% CI), UCL(upper bound of 95% CI) and P-value. 
-
-|                        |    Estimate|         LCL|        UCL|   P-value|
-|:-----------------------|-----------:|-----------:|----------:|---------:|
-|(Intercept)             |   8.3225219|  -5.1577503|  21.802794| 0.2262500|
-|comp                    |  -3.0582872|  -7.7193806|   1.602806| 0.1984373|
-|engage                  |  -2.0224869|  -5.3765888|   1.331615| 0.2372618|
-|genderWoman             |  35.9016741| -39.5130292| 111.316377| 0.3507833|
-|comp:engage             |   0.7973335|  -0.3734848|   1.968152| 0.1819515|
-|comp:genderWoman        | -16.1925804| -43.8726190|  11.487458| 0.2515541|
-|engage:genderWoman      |  -9.3026644| -28.3450196|   9.739691| 0.3383105|
-|comp:engage:genderWoman |   4.0886009|  -2.9065979|  11.083800| 0.2519632|
+```{r, echo = FALSE}
+tableit <- data.frame(summary(model2)$coef)
+tableit$LCL <- tableit$Estimate - tableit$Std..Error * 1.96 
+tableit$UCL <- tableit$Estimate + tableit$Std..Error * 1.96 
+tableit$`P-value` <- tableit$Pr...z..
+tableit <- tableit[c(1,5,6,7)]
+kable(tableit,format='markdown')
+```
 
 Here are the interpretation of the each coefficients:
 
