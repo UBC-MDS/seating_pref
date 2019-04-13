@@ -1,0 +1,184 @@
+\documentclass[man]{apa6}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Self-reported Competitiveness and Seating Preference: An Observational Study},
+            pdfauthor={Ayla Pearson, Bonnie Zhang, George J. J. Wu, \& Socorro Dominguez},
+            pdfkeywords={competitiveness, seating preference},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+
+  \title{Self-reported Competitiveness and Seating Preference: An Observational Study}
+    \author{Ayla Pearson\textsuperscript{1,2}, Bonnie Zhang\textsuperscript{1,2}, George J. J. Wu\textsuperscript{1,2}, \& Socorro Dominguez\textsuperscript{1,2}}
+    \date{}
+  
+\shorttitle{Seating}
+\affiliation{
+\vspace{0.5cm}
+\textsuperscript{1} The University of British Columbia\\\textsuperscript{2} Master of Data Science Program}
+\keywords{competitiveness, seating preference}
+\usepackage{csquotes}
+\usepackage{upgreek}
+\captionsetup{font=singlespacing,justification=justified}
+
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage[flushleft]{threeparttable}
+\usepackage{threeparttablex}
+
+\newenvironment{lltable}{\begin{landscape}\begin{center}\begin{ThreePartTable}}{\end{ThreePartTable}\end{center}\end{landscape}}
+
+\makeatletter
+\newcommand\LastLTentrywidth{1em}
+\newlength\longtablewidth
+\setlength{\longtablewidth}{1in}
+\newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
+
+
+\DeclareDelayedFloatFlavor{ThreePartTable}{table}
+\DeclareDelayedFloatFlavor{lltable}{table}
+\DeclareDelayedFloatFlavor*{longtable}{table}
+\makeatletter
+\renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
+\makeatother
+
+\authornote{
+
+Correspondence concerning this article should be addressed to Socorro Dominguez, Earth Sciences Building, 2178-2207 Main Mall, Vancovuer, BC, Canada. E-mail: \href{mailto:sedv8808@gmail.com}{\nolinkurl{sedv8808@gmail.com}}}
+
+\abstract{
+Seating location is commonly linked to learning experience, gender differences, and student engagement. The question remains, however, whether certain personality dispositions, such as competitiveness, can systemtically influence where students prefer to sit in a classroom. The current study surveyed 58 individuals affiliated with the University of British Columbia, and did not observe a conclusive relationship between self-reported competitiveness and seating preference. Limitations and future directions of this study were discussed.
+
+
+}
+
+\begin{document}
+\maketitle
+
+Seating location in the classroom is commonly linked to grade performance, learning experience, gender differences, and student engagement (Gowan, Hanna, Greer, Busch, \& Anderson, 2017; Shernoff et al., 2017). Nevertheless, the question remains whether certain personality dispositions can systematically influence where students prefer to sit in a classroom.
+
+To address this gap in the literature, this study aims to deploy a survey and explore the question: Does self-reported competitiveness influence where an individual prefers to sit in class? This study hypothesizes that:
+
+\(H_{0}\): Self-reported competitiveness \emph{does not} influence student seating preference.
+
+\(H_{A}\): Self-reported competitiveness \emph{does} influence student seating preference.
+
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
+
+\hypertarget{participants}{%
+\subsection{Participants}\label{participants}}
+
+Participants in this study were 58 individuals affiliated with the Master of Data Science program at the University of British Columbia. Participants could receive academic credits for taking part in this study.
+
+Note that six participants reported seating preference in multiple sections across a classroom. As the current study is only interested in seating preference in a particular classroom section, the observations from these six participants were excluded from further analyses.
+
+\hypertarget{materials-and-survey-design}{%
+\subsection{Materials and survey design}\label{materials-and-survey-design}}
+
+\textbf{Self-reported competitiveness.} Competitiveness of each participant was measured by using an adaption of the general competitiveness short-scale from Bönte, Lombardo, and Urbig (2017). Participants were asked to rate their competitiveness without an explicit reason (\enquote{\emph{Do you enjoy situations in which you compete with others?}}), as well as goal-oriented competitiveness (\enquote{\emph{Do you prefer competing with others when pursuing a goal over pursuing the goal alone?}}). Participants responded to these two items on a scale from 1 (\enquote{dislike a great deal}) to 5 (\enquote{like a great deal}). The average scores of these two items were used as the measurement of self-reported competitiveness.
+
+\textbf{Seating preference.} Participants were asked if they prefer sitting in the front section, in the middle section, or in the back section of a classroom. Participants were also offered a choice not to respond to this question.
+
+\textbf{Gender.} Gender has been directly linked to both student seating (Shernoff et al., 2017), and competitiveness (Buser, Niederle, \& Oosterbeek, 2012). This study also collected gender as a potential confound, and asked participants whether they most identifiy with man, woman, or other genders. Participants were also offered a choice not to respond to this question.
+
+\textbf{Engagement.} Students who sit in the back of the classroom are found to be less engaged (Shernoff et al., 2017), while competitive individuals are typically more engaged in a task (Karatepe \& Olugbade, 2009). To account for this potential confound, this study adapted the questionnare from Shernoff et al. (2017), and asked participants to rate their enjoyment in class (\enquote{\emph{Did you enjoy what you were doing in the MDS program?}}), their concentration (\enquote{\emph{Do you often find your mind wander off in class?})(reverse coded), as well as their class interest (}\emph{Do you find the course content in MDS to be interesting?}"). Participants responded to these three items on a 5-point scale. The average scores of these three items were used as a measurement of engagement, with a higher score indicating being more engaged.
+
+\hypertarget{results-and-analyses}{%
+\section{Results and analyses}\label{results-and-analyses}}
+
+\textbf{Self-reported competitiveness and seating preference.}
+
+\textbf{Gender.}
+
+\textbf{Engagement.}
+
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
+
+\newpage
+
+\hypertarget{references}{%
+\section{References}\label{references}}
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-bonte_economics_2017}{}%
+Bönte, W., Lombardo, S., \& Urbig, D. (2017). Economics meets psychology: Experimental and self-reported measures of individual competitiveness. \emph{Personality and Individual Differences}, \emph{116}, 179--185. doi:\href{https://doi.org/10.1016/j.paid.2017.04.036}{10.1016/j.paid.2017.04.036}
+
+\leavevmode\hypertarget{ref-buser_gender_2012}{}%
+Buser, T., Niederle, M., \& Oosterbeek, H. (2012). Gender, Competitiveness and Career Choices, 52.
+
+\leavevmode\hypertarget{ref-gowan_learning_2017}{}%
+Gowan, A. M., Hanna, P., Greer, D., Busch, J., \& Anderson, N. (2017). Learning to program - does it matter where you sit in the lecture theatre? In \emph{2017 40th International Convention on Information and Communication Technology, Electronics and Microelectronics (MIPRO)} (pp. 624--629). doi:\href{https://doi.org/10.23919/MIPRO.2017.7973500}{10.23919/MIPRO.2017.7973500}
+
+\leavevmode\hypertarget{ref-karatepe_effects_2009}{}%
+Karatepe, O. M., \& Olugbade, O. A. (2009). The effects of job and personal resources on hotel employees' work engagement. \emph{International Journal of Hospitality Management}, \emph{28}(4), 504--512. doi:\href{https://doi.org/10.1016/j.ijhm.2009.02.003}{10.1016/j.ijhm.2009.02.003}
+
+\leavevmode\hypertarget{ref-shernoff_separate_2017}{}%
+Shernoff, D. J., Sannella, A. J., Schorr, R. Y., Sanchez-Wall, L., Ruzek, E. A., Sinha, S., \& Bressler, D. M. (2017). Separate worlds: The influence of seating location on student engagement, classroom experience, and performance in the large university lecture hall. \emph{Journal of Environmental Psychology}, \emph{49}, 55--64. doi:\href{https://doi.org/10.1016/j.jenvp.2016.12.002}{10.1016/j.jenvp.2016.12.002}
+
+\endgroup
+
+
+\end{document}
