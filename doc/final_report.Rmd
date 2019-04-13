@@ -4,12 +4,16 @@ author: "Seating Preference Team"
 date: '2019-04-10'
 output: github_document
 ---
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(knitr)
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
+library(kableExtra)
+library(here)
+
 ```
 # Milestone 3: Final Report
 
@@ -38,6 +42,9 @@ After gathering the data from the survey, we proceded to analyze it first throug
 *Gender:* Our researched literature suggests that gender is directly linked to both: where a student prefers to sit and to their competitiveness. 
 
 *Student Engagement:* Our researched literature suggests that students who sit in the back are less engaged in class. Therefore, we measured engagement as a potential confound through 3 questions on the Likert scale and averaged them.
+
+![](../doc/var_table_files/table_01.png)
+
 
 **Response**
 *Seating Preference:* Participants were asked to tell us where they usually prefer to sit (front, middle, or back).
