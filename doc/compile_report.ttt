@@ -1,0 +1,77 @@
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[tbp]
+\begin{center}
+\begin{threeparttable}
+\caption{\label{tab:Seating preference}Overview of findings across seating preference categories}
+\begin{tabular}{lllll}
+\toprule
+Preference & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean competitiveness (sd)} & \multicolumn{1}{c}{Mean engagement (sd)} & \multicolumn{1}{c}{Ratio of women}\\
+\midrule
+Middle & 21 & 3.05 $\pm$ 0.97 & 3.63 $\pm$ 0.76 & 0.57\\
+Not-middle & 23 & 3.30 $\pm$ 1.12 & 3.93 $\pm$ 0.73 & 0.30\\
+\bottomrule
+\addlinespace
+\end{tabular}
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} "sd" denotes one standard deviation.}
+\end{tablenotes}
+\end{threeparttable}
+\end{center}
+\end{table*}
+\efloatseparator
+ 
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[tbp]
+\begin{center}
+\begin{threeparttable}
+\caption{\label{tab:Additive model}Logistic regression with additive confounds}
+\begin{tabular}{lllll}
+\toprule
+Predictor & \multicolumn{1}{c}{$b$} & \multicolumn{1}{c}{95\% CI} & \multicolumn{1}{c}{$z$} & \multicolumn{1}{c}{$p$}\\
+\midrule
+Intercept & -1.97 & $[-5.98$, $1.64]$ & -1.05 & .295\\
+Comp & 0.12 & $[-0.52$, $0.76]$ & 0.37 & .710\\
+GenderWoman & -1.14 & $[-2.48$, $0.12]$ & -1.74 & .082\\
+Engage & 0.58 & $[-0.27$, $1.53]$ & 1.29 & .196\\
+\bottomrule
+\addlinespace
+\end{tabular}
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} Dependent variable: seating preference.}
+\end{tablenotes}
+\end{threeparttable}
+\end{center}
+\end{table*}
+\efloatseparator
+ 
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[tbp]
+\begin{center}
+\begin{threeparttable}
+\caption{\label{tab:Multiplicative model}Logistic regression with confounds and interactions}
+\begin{tabular}{lllll}
+\toprule
+Predictor & \multicolumn{1}{c}{$b$} & \multicolumn{1}{c}{95\% CI} & \multicolumn{1}{c}{$z$} & \multicolumn{1}{c}{$p$}\\
+\midrule
+Intercept & 8.32 & $[-4.12$, $24.07]$ & 1.21 & .226\\
+Comp & -3.06 & $[-8.53$, $1.21]$ & -1.29 & .198\\
+GenderWoman & 35.90 & $[-31.07$, $134.41]$ & 0.93 & .351\\
+Engage & -2.02 & $[-5.89$, $1.08]$ & -1.18 & .237\\
+Comp $\times$ GenderWoman & -16.19 & $[-54.83$, $6.10]$ & -1.15 & .252\\
+Comp $\times$ Engage & 0.80 & $[-0.25$, $2.19]$ & 1.33 & .182\\
+GenderWoman $\times$ Engage & -9.30 & $[-34.08$, $7.52]$ & -0.96 & .338\\
+Comp $\times$ GenderWoman $\times$ Engage & 4.09 & $[-1.51$, $13.80]$ & 1.15 & .252\\
+\bottomrule
+\addlinespace
+\end{tabular}
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} Dependent variable: seating preference.}
+\end{tablenotes}
+\end{threeparttable}
+\end{center}
+\end{table*}
+\efloatseparator
+ 
