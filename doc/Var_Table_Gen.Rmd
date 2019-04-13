@@ -1,0 +1,39 @@
+---
+title: "Variables"
+author: "Socorro Dominguez"
+date: '2019-04-12'
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library("magick")
+library("webshot")
+#install_phantomjs()
+```
+
+## R Markdown
+
+Load tidy data
+```{r cars}
+data <- read_csv('data/seat_clean.csv')
+```
+## Table
+
+```{r table}
+variables_table <- data %>%
+  select(comp, engage, seat_pref_binary) %>%
+  group_by(Seat_Preference = seat_pref_binary) %>%
+  summarize(Avg_Comp = round(mean(comp),2), SD_Comp = round(sd(comp),2), Avg_Engage = round(mean(engage),2), SD_Engage = round(sd(engage),2))
+```
+
+
+```{r}
+knitr::kable(variables_table, "latex") %>%
+  kable_styling(latex_options = "basic", full_width = F) %>%
+  row_spec(0, angle = 45) %>%
+  save_kable("table_01.png")
+```
