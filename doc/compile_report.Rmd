@@ -66,13 +66,13 @@ $H_{A}$: Self-reported competitiveness _does_ influence student seating preferen
 
 # Methods
 
-## Participants
+## Data collection
 
-Participants in this study were 58 individuals affiliated with the Master of Data Science program at the University of British Columbia. Participants could receive academic credits for taking part in this study. 
+Participants in this survey study were 58 individuals affiliated with the Master of Data Science program at the University of British Columbia (UBC). Participants could receive academic credits for taking part in the survey, which was administered via the [UBC Survey Tool](https://it.ubc.ca/services/teaching-learning-tools/survey-tool). 
 
 Note that six participants reported seating preference in multiple sections across a classroom. As the current study is only interested in seating preference in a particular classroom section, the observations from these six participants were excluded from further analyses.
 
-## Materials and survey design
+## Survey design and analysis methods
 
 **Self-reported competitiveness.** Competitiveness of each participant was measured by using an adaption of the general competitiveness short-scale from @bonte_economics_2017. Participants were asked to rate their competitiveness without an explicit reason ("_Do you enjoy situations in which you compete with others?_"), as well as goal-oriented competitiveness ("_Do you prefer competing with others when pursuing a goal over pursuing the goal alone?_"). Participants responded to these two items on a scale from 1 ("dislike a great deal") to 5 ("like a great deal"). The average scores of these two items were used as the measurement of self-reported competitiveness. 
 
@@ -82,7 +82,7 @@ Note that six participants reported seating preference in multiple sections acro
 
 **Engagement.** Students who sit in the back of the classroom are found to be less engaged [@shernoff_separate_2017], while competitive individuals are typically more engaged in a task [@karatepe_effects_2009]. To account for this potential confound, this study adapted the questionnare from @shernoff_separate_2017, and asked participants to rate their enjoyment in class ("_Did you enjoy what you were doing in the MDS program?_"), their concentration ("_Do you often find your mind wander off in class?_)(reverse coded), as well as their class interest ("_Do you find the course content in MDS to be interesting?_"). Participants responded to these three items on a 5-point scale. The average scores of these three items were used as a measurement of engagement, with a higher score indicating being more engaged.
 
-# Results and analyses
+# Results
 
 **Self-reported competitiveness and seating preference.** 
 
