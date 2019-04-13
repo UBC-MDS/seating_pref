@@ -126,9 +126,7 @@ To address this gap in the literature, this study aims to deploy a survey and ex
 \hypertarget{data-collection}{%
 \subsection{Data collection}\label{data-collection}}
 
-Participants in this survey study were 58 individuals affiliated with the Master of Data Science program at the University of British Columbia (UBC). Participants could receive academic credits for taking part in the survey, which was administered via the \href{https://it.ubc.ca/services/teaching-learning-tools/survey-tool}{UBC Survey Tool}.
-
-Note that six participants reported seating preference in multiple sections across a classroom. As the current study is only interested in seating preference in a particular classroom section, the observations from these six participants were excluded from further analyses.
+Participants in this survey study were 58 individuals affiliated with the Master of Data Science program at the University of British Columbia (UBC). Participants could receive academic credits for taking part in the survey, which was administered via the \href{https://it.ubc.ca/services/teaching-learning-tools/survey-tool}{UBC Survey Tool}. Note that six participants reported seating preference in multiple sections across a classroom. As this study is only interested in seating preference in a particular classroom section, the observations from these six participants were excluded from further analyses. After removing missing observations, a total number of 44 participants were included in the final analyses. The code used to \href{https://github.ubc.ca/sedv8808/seat_pref_survey/blob/master/src/prepare_data.R}{process} and \href{https://github.com/UBC-MDS/seating_pref/blob/master/doc/eda.md}{analyze} the \href{https://github.ubc.ca/sedv8808/seat_pref_survey}{survey data} could be made publicly available.
 
 \hypertarget{survey-design-and-analysis-methods}{%
 \subsection{Survey design and analysis methods}\label{survey-design-and-analysis-methods}}
@@ -182,7 +180,7 @@ Engage & 0.58 & $[-0.27$, $1.53]$ & 1.29 & .196\\
 \addlinespace
 \end{tabular}
 \begin{tablenotes}[para]
-\normalsize{\textit{Note.} Dependent variable: seating preference.}
+\normalsize{\textit{Note.} Dependent variable: seating preference. Reference level: Middle seating preference; Male.}
 \end{tablenotes}
 \end{threeparttable}
 \end{center}
@@ -208,16 +206,24 @@ Comp $\times$ GenderWoman $\times$ Engage & 4.09 & $[-1.51$, $13.80]$ & 1.15 & .
 \addlinespace
 \end{tabular}
 \begin{tablenotes}[para]
-\normalsize{\textit{Note.} Dependent variable: seating preference.}
+\normalsize{\textit{Note.} Dependent variable: seating preference. Reference level: Middle seating preference; Male.}
 \end{tablenotes}
 \end{threeparttable}
 \end{center}
 \end{table}
 
-\textbf{Statiscal modelling with logistic regression.} Whist taking the confounding effects of gender and engagement into considerations, we observed that the effect of competitiveness on seating preference was inconclusive and insignificant (\(b = -1.97\), 95\% CI \([-0.52, 0.76]\), \(p = .71\)), as shown by Table 2 in more details. This inconclusive pattern persisted (\(b = -3.06\), 95\% CI \([-8.53, 1.21]\), \(p = .198\)) after also considering the interactions among the variables, as shown by Table 3 in more details. Furthermore, note that the main effects of the two confounding varibles on seating preference and their interactions were also inconclusive and insignificant.
+\textbf{Statiscal modelling with logistic regression.} Whist taking the confounding effects of gender and engagement into considerations, we observed that the effect of competitiveness on seating preference was inconclusive and insignificant (\(b = -1.97\), 95\% CI \([-0.52, 0.76]\), \(p = .71\)), as shown by Table 2 in more details. This inconclusive pattern persisted (\(b = -3.06\), 95\% CI \([-8.53, 1.21]\), \(p = .198\)) after also considering the interactions among the variables, as shown by Table 3 in more details. Furthermore, note that the main effects of the two confounding variables on seating preference and their interactions were also inconclusive and insignificant. In summary, there was insufficient evidence in the current study to suggest that self-reported competitiveness is associated with seating preference.
 
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
+
+\textbf{Implications of survey findings.} The current study did not observe a robust relationship between competitiveness and seating preference, which is perhaps unsurprising, considering there was no previous established association between these two constructs. Nonetheless, this study also failed to replicate the gender and engagement differences in classroom seating preference as reported by previous literature. These findings exposed a number of limitations in the current study.
+
+\textbf{Limitations of the current study.} This study suffered from a very modest sample size, which did not lend our analyses enough statistical power to obtain conclusive results, or to replicate previously known findings. This limitation was reflected in the large amount of variability within each level of seating preference, as well as in the large standard error associated with our regression estimates. Participants of this study were also exclusively affiliated with the Master of Data Science program at the University of British Columbia, which can further diminish the generalizability and conclusiveness of the study findings.
+
+This study can also benefit from a more sophisticated measurement of seating preference. Choosing where to sit in a classroom has been linked to territorial claiming behaviours (Guyot, Byrd, \& Caudle, 1980). Once a seat is claimed, students are also known to become attached to their initial choices (Scannell \& Gifford, 2017). This study can benefit from additional measurements that can better capture the nuiance of seating preference.
+
+\textbf{Future directions.} The current survey study represents an early step to establish a relationship between competitiveness and classroom seating preference. Toward this goal, future iterations of this study can benefit from collecting a much larger and generalized sample. Future studies can perhaps also take advantage of simulation-based evaluations to more adequately measure seating preferences.
 
 \newpage
 
@@ -238,8 +244,14 @@ Buser, T., Niederle, M., \& Oosterbeek, H. (2012). Gender, Competitiveness and C
 \leavevmode\hypertarget{ref-gowan_learning_2017}{}%
 Gowan, A. M., Hanna, P., Greer, D., Busch, J., \& Anderson, N. (2017). Learning to program - does it matter where you sit in the lecture theatre? In \emph{2017 40th International Convention on Information and Communication Technology, Electronics and Microelectronics (MIPRO)} (pp. 624--629). doi:\href{https://doi.org/10.23919/MIPRO.2017.7973500}{10.23919/MIPRO.2017.7973500}
 
+\leavevmode\hypertarget{ref-guyot_classroom_1980}{}%
+Guyot, G. W., Byrd, G. R., \& Caudle, R. (1980). Classroom Seating: An Expression of Situational Territoriality in Humans. \emph{Small Group Behavior}, \emph{11}(1), 120--128. doi:\href{https://doi.org/10.1177/104649648001100110}{10.1177/104649648001100110}
+
 \leavevmode\hypertarget{ref-karatepe_effects_2009}{}%
 Karatepe, O. M., \& Olugbade, O. A. (2009). The effects of job and personal resources on hotel employees' work engagement. \emph{International Journal of Hospitality Management}, \emph{28}(4), 504--512. doi:\href{https://doi.org/10.1016/j.ijhm.2009.02.003}{10.1016/j.ijhm.2009.02.003}
+
+\leavevmode\hypertarget{ref-scannell_experienced_2017}{}%
+Scannell, L., \& Gifford, R. (2017). The experienced psychological benefits of place attachment. \emph{Journal of Environmental Psychology}, \emph{51}, 256--269. doi:\href{https://doi.org/10.1016/j.jenvp.2017.04.001}{10.1016/j.jenvp.2017.04.001}
 
 \leavevmode\hypertarget{ref-shernoff_separate_2017}{}%
 Shernoff, D. J., Sannella, A. J., Schorr, R. Y., Sanchez-Wall, L., Ruzek, E. A., Sinha, S., \& Bressler, D. M. (2017). Separate worlds: The influence of seating location on student engagement, classroom experience, and performance in the large university lecture hall. \emph{Journal of Environmental Psychology}, \emph{49}, 55--64. doi:\href{https://doi.org/10.1016/j.jenvp.2016.12.002}{10.1016/j.jenvp.2016.12.002}

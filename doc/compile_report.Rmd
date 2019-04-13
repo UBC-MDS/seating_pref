@@ -69,9 +69,7 @@ $H_{A}$: Self-reported competitiveness _does_ influence student seating preferen
 
 ## Data collection
 
-Participants in this survey study were 58 individuals affiliated with the Master of Data Science program at the University of British Columbia (UBC). Participants could receive academic credits for taking part in the survey, which was administered via the [UBC Survey Tool](https://it.ubc.ca/services/teaching-learning-tools/survey-tool). 
-
-Note that six participants reported seating preference in multiple sections across a classroom. As the current study is only interested in seating preference in a particular classroom section, the observations from these six participants were excluded from further analyses.
+Participants in this survey study were 58 individuals affiliated with the Master of Data Science program at the University of British Columbia (UBC). Participants could receive academic credits for taking part in the survey, which was administered via the [UBC Survey Tool](https://it.ubc.ca/services/teaching-learning-tools/survey-tool). Note that six participants reported seating preference in multiple sections across a classroom. As this study is only interested in seating preference in a particular classroom section, the observations from these six participants were excluded from further analyses. After removing missing observations, a total number of 44 participants were included in the final analyses. The code used to [process](https://github.ubc.ca/sedv8808/seat_pref_survey/blob/master/src/prepare_data.R) and [analyze](https://github.com/UBC-MDS/seating_pref/blob/master/doc/eda.md) the [survey data](https://github.ubc.ca/sedv8808/seat_pref_survey) could be made publicly available. 
 
 ## Survey design and analysis methods
 
@@ -111,7 +109,7 @@ a_model <- glm(seat_pref ~ comp + gender + engage, data = df, family = "binomial
 a_model$table %>% 
   apa_table(caption = "Logistic regression with additive confounds",
             escape = FALSE,
-            note = "Dependent variable: seating preference.")
+            note = "Dependent variable: seating preference. Reference level: Middle seating preference; Male.")
 ```
 
 ```{r Multiplicative model, warning=FALSE, results="asis", eval=TRUE}
@@ -121,14 +119,20 @@ m_model <- glm(seat_pref ~ comp * gender * engage, data = df, family = "binomial
 m_model$table %>% 
   apa_table(caption = "Logistic regression with confounds and interactions",
             escape = FALSE,
-            note = "Dependent variable: seating preference.")
+            note = "Dependent variable: seating preference. Reference level: Middle seating preference; Male.")
 ```
 
-**Statiscal modelling with logistic regression.** Whist taking the confounding effects of gender and engagement into considerations, we observed that the effect of competitiveness on seating preference was inconclusive and insignificant ($b = -1.97$, 95\% CI $[-0.52, 0.76]$, $p = .71$), as shown by Table 2 in more details. This inconclusive pattern persisted ($b = -3.06$, 95\% CI $[-8.53, 1.21]$, $p = .198$) after also considering the interactions among the variables, as shown by Table 3 in more details. Furthermore, note that the main effects of the two confounding varibles on seating preference and their interactions were also inconclusive and insignificant.
+**Statiscal modelling with logistic regression.** Whist taking the confounding effects of gender and engagement into considerations, we observed that the effect of competitiveness on seating preference was inconclusive and insignificant ($b = -1.97$, 95\% CI $[-0.52, 0.76]$, $p = .71$), as shown by Table 2 in more details. This inconclusive pattern persisted ($b = -3.06$, 95\% CI $[-8.53, 1.21]$, $p = .198$) after also considering the interactions among the variables, as shown by Table 3 in more details. Furthermore, note that the main effects of the two confounding variables on seating preference and their interactions were also inconclusive and insignificant. In summary, there was insufficient evidence in the current study to suggest that self-reported competitiveness is associated with seating preference.
 
 # Discussion
 
+**Implications of survey findings.** The current study did not observe a robust relationship between competitiveness and seating preference, which is perhaps unsurprising, considering there was no previous established association between these two constructs. Nonetheless, this study also failed to replicate the gender and engagement differences in classroom seating preference as reported by previous literature. These findings exposed a number of limitations in the current study.
 
+**Limitations of the current study.** This study suffered from a very modest sample size, which did not lend our analyses enough statistical power to obtain conclusive results, or to replicate previously known findings. This limitation was reflected in the large amount of variability within each level of seating preference, as well as in the large standard error associated with our regression estimates. Participants of this study were also exclusively affiliated with the Master of Data Science program at the University of British Columbia, which can further diminish the generalizability and conclusiveness of the study findings.
+
+This study can also benefit from a more sophisticated measurement of seating preference. Choosing where to sit in a classroom has been linked to territorial claiming behaviours [@guyot_classroom_1980]. Once a seat is claimed, students are also known to become attached to their initial choices [@scannell_experienced_2017]. This study can benefit from additional measurements that can better capture the nuiance of seating preference.
+
+**Future directions.** The current survey study represents an early step to establish a relationship between competitiveness and classroom seating preference. Toward this goal, future iterations of this study can benefit from collecting a much larger and generalized sample. Future studies can perhaps also take advantage of simulation-based evaluations to more adequately measure seating preferences.
 
 \newpage
 
