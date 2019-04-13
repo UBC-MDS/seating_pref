@@ -1,0 +1,149 @@
+---
+title             : "Self-reported Competitiveness and Seating Preference: An Observational Study"
+shorttitle        : "Seating"
+
+author: 
+  - name          : "Ayla Pearson"
+    affiliation   : "1,2"
+  - name          : "Bonnie Zhang"
+    affiliation   : "1,2"
+  - name          : "George J. J. Wu"
+    affiliation   : "1,2"
+  - name          : "Socorro Dominguez"
+    affiliation   : "1,2"
+    corresponding : yes   # Define only one corresponding author
+    address       : "Earth Sciences Building, 2178-2207 Main Mall, Vancovuer, BC, Canada"
+    email         : "sedv8808@gmail.com"
+
+affiliation:
+  - id            : "1"
+    institution   : "The University of British Columbia"
+  - id            : "2"
+    institution   : "Master of Data Science Program"
+
+abstract: |
+  Seating location is commonly linked to learning experience, gender differences, and student engagement. The question remains, however, whether certain personality dispositions, such as competitiveness, can systemtically influence where students prefer to sit in a classroom. The current study surveyed 58 individuals affiliated with the University of British Columbia, and did not observe a conclusive relationship between self-reported competitiveness and seating preference. Limitations and future directions of this study were discussed. 
+  
+keywords          : "competitiveness, seating preference"
+
+bibliography      : ["r-references.bib", "ref.bib"]
+
+floatsintext      : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : no
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r Load libraries, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(citr)
+library(broom)
+library(papaja)
+library(qwraps2)
+```
+
+```{r Load data, include = FALSE}
+# load data
+df <- read_csv("../data/seat_clean.csv") %>% 
+  mutate_at(c("seat_pref", "seat_pref_binary", "gender"), factor) %>% 
+  select(seat_pref = seat_pref_binary, comp, gender, engage)
+```
+
+Seating location in the classroom is commonly linked to grade performance, learning experience, gender differences, and student engagement [@gowan_learning_2017; @shernoff_separate_2017]. Nevertheless, the question remains whether certain personality dispositions can systematically influence where students prefer to sit in a classroom.
+
+To address this gap in the literature, this study aims to deploy a survey and explore the question: Does self-reported competitiveness influence where an individual prefers to sit in class? This study hypothesizes that:
+
+$H_{0}$: Self-reported competitiveness _does not_ influence student seating preference.
+
+$H_{A}$: Self-reported competitiveness _does_ influence student seating preference.
+
+# Methods
+
+## Data collection
+
+Participants in this survey study were 58 individuals affiliated with the Master of Data Science program at the University of British Columbia (UBC). Participants could receive academic credits for taking part in the survey, which was administered via the [UBC Survey Tool](https://it.ubc.ca/services/teaching-learning-tools/survey-tool). Note that six participants reported seating preference in multiple sections across a classroom. As this study is only interested in seating preference in a particular classroom section, the observations from these six participants were excluded from further analyses. After removing missing observations, a total number of 44 participants were included in the final analyses. The code used to [process](https://github.ubc.ca/sedv8808/seat_pref_survey/blob/master/src/prepare_data.R) and [analyze](https://github.com/UBC-MDS/seating_pref/blob/master/doc/eda.md) the [survey data](https://github.ubc.ca/sedv8808/seat_pref_survey) could be made publicly available. 
+
+## Survey design and analysis methods
+
+**Self-reported competitiveness.** Competitiveness of each participant was measured by using an adaption of the general competitiveness short-scale from @bonte_economics_2017. Participants were asked to rate their competitiveness without an explicit reason ("_Do you enjoy situations in which you compete with others?_"), as well as goal-oriented competitiveness ("_Do you prefer competing with others when pursuing a goal over pursuing the goal alone?_"). Participants responded to these two items on a scale from 1 ("dislike a great deal") to 5 ("like a great deal"). The average scores of these two items were used as the measurement of self-reported competitiveness, with a higher score meaning more competitive. 
+
+**Seating preference.** Participants were asked if they prefer sitting in the front, middle, or back section of a classroom. Participants were also offered a choice not to respond to this question. To facilitate comparisons, we further classified participants into two categories - those that prefer sitting in the middle of the classroom ("Middle"), and those that prefer not sitting in the middle ("Not-middle").
+
+**Gender.** Gender has been directly linked to both student seating [@shernoff_separate_2017], and competitiveness [@buser_gender_2012]. This study also collected gender as a potential confound, and asked participants whether they most identify with man, woman, or other genders. Participants were also offered a choice not to respond to this question.  
+
+**Engagement.** Students who sit in the back of the classroom are found to be less engaged [@shernoff_separate_2017], while competitive individuals are typically more engaged in a task [@karatepe_effects_2009]. To account for this potential confound, this study adapted the questionnaire from @shernoff_separate_2017, and asked participants to rate their enjoyment in class ("_Did you enjoy what you were doing in the MDS program?_"), their concentration ("_Do you often find your mind wander off in class?_)(reverse coded), as well as their interest in class ("_Do you find the course content in MDS to be interesting?_"). Participants responded to these three items on a 5-point scale. The average scores of these three items were used as a measurement of engagement, with a higher score indicating being more engaged.
+
+# Results and analyses
+
+```{r Seating preference, results="asis", eval=TRUE}
+overview <- df %>%
+  mutate(gender = if_else(gender == "Man", 0, 1),
+         "Preference" = seat_pref) %>% 
+  group_by(Preference) %>% 
+  summarise(N = n(),
+            "Mean competitiveness (sd)" = mean_sd(comp),
+            "Mean engagement (sd)" = mean_sd(engage),
+            "Ratio of women" = mean(gender))
+
+overview %>% 
+  printnum() %>% 
+  apa_table(caption = "Overview of findings across seating preference categories",
+            note = '"sd" denotes one standard deviation.',
+            escape = FALSE)
+```
+
+**Descriptive analyses.** We observed that nearly half the participants preferred sitting in the middle of the classroom ($N_{middle} = 21$; 9 men; 12 women), and about another half not in the middle ($N_{not-middle} = 23$; 16 men; 7 women). Participants who prefer sitting in the middle appeared to be less competitive ($M_{middle} = 3.05, SD = 0.97$) comparing to their "not-middle" counterpart ($M_{not-middle} = 3.30, SD = 1.12$); as well as less engaged ($M_{middle} = 3.63, SD = 0.76$), when compared to their "not-middle" counterpart ($M_{not-middle} = 3.93, SD = 0.73$), as shown in Table 1 with more details. Nonetheless, these differences are not statistically significant, as we will demonstrate with two logistic regression models.
+
+```{r Additive model, results="asis", eval=TRUE}
+a_model <- glm(seat_pref ~ comp + gender + engage, data = df, family = "binomial") %>% 
+  apa_print()
+
+a_model$table %>% 
+  apa_table(caption = "Logistic regression with additive confounds",
+            escape = FALSE,
+            note = "Dependent variable: seating preference. Reference level: Middle seating preference; Male.")
+```
+
+```{r Multiplicative model, warning=FALSE, results="asis", eval=TRUE}
+m_model <- glm(seat_pref ~ comp * gender * engage, data = df, family = "binomial") %>% 
+  apa_print()
+
+m_model$table %>% 
+  apa_table(caption = "Logistic regression with confounds and interactions",
+            escape = FALSE,
+            note = "Dependent variable: seating preference. Reference level: Middle seating preference; Male.")
+```
+
+**Statiscal modelling with logistic regression.** Whist taking the confounding effects of gender and engagement into considerations, we observed that the effect of competitiveness on seating preference was inconclusive and insignificant ($b = -1.97$, 95\% CI $[-0.52, 0.76]$, $p = .71$), as shown by Table 2 in more details. This inconclusive pattern persisted ($b = -3.06$, 95\% CI $[-8.53, 1.21]$, $p = .198$) after also considering the interactions among the variables, as shown by Table 3 in more details. Furthermore, note that the main effects of the two confounding variables on seating preference and their interactions were also inconclusive and insignificant. In summary, there was insufficient evidence in the current study to suggest that self-reported competitiveness is associated with seating preference.
+
+# Discussion
+
+**Implications of survey findings.** The current study did not observe a robust relationship between competitiveness and seating preference, which is perhaps unsurprising, considering there was no previous established association between these two constructs. Nonetheless, this study also failed to replicate the gender and engagement differences in classroom seating preference as reported by previous literature. These findings exposed a number of limitations in the current study.
+
+**Limitations of the current study.** This study suffered from a very modest sample size, which did not lend our analyses enough statistical power to obtain conclusive results, or to replicate previously known findings. This limitation was reflected in the large amount of variability within each level of seating preference, as well as in the large standard error associated with our regression estimates. Participants of this study were also exclusively affiliated with the Master of Data Science program at the University of British Columbia, which can further diminish the generalizability and conclusiveness of the study findings.
+
+This study can also benefit from a more sophisticated measurement of seating preference. Choosing where to sit in a classroom has been linked to territorial claiming behaviours [@guyot_classroom_1980]. Once a seat is claimed, students are also known to become attached to their initial choices [@scannell_experienced_2017]. This study can benefit from additional measurements that can better capture the nuiance of seating preference.
+
+**Future directions.** The current survey study represents an early step to establish a relationship between competitiveness and classroom seating preference. Toward this goal, future iterations of this study can benefit from collecting a much larger and generalized sample. Future studies can perhaps also take advantage of simulation-based evaluations to more adequately measure seating preferences.
+
+\newpage
+
+# References
+```{r create_r-references}
+r_refs(file = "r-references.bib")
+```
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id = "refs"></div>
+\endgroup

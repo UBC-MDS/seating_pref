@@ -240,25 +240,4 @@ Buser, T., Niederle, M., & Oosterbeek, H. (2012). Gender,
 Competitiveness and Career Choices. National Bureau of Economic Research
 Working Paper Series, 18576. <doi:10.3386/w18576>
 
-Bönte, W., Lombardo, S., & Urbig, D. (2017). Economics meets psychology:
-Experimental and self-reported measures of individual competitiveness.
-Personality and Individual Differences, 116, 179-185.
-<doi:10.1016/j.paid.2017.04.036>
-
-Gowan, A. M., Hanna, P., Greer, D., Busch, J., & Anderson, N. (2017).
-Learning to program - does it matter where you sit in the lecture
-theatre? 2017 40th International Convention on Information and
-Communication Technology, Electronics and Microelectronics (MIPRO).
-<doi:10.23919/mipro.2017.7973500>
-
-Karatepe, O. M., & Olugbade, O. A. (2009). The effects of job and
-personal resources on hotel employees’ work engagement. International
-Journal of Hospitality Management, 28(4), 504-512.
-<doi:10.1016/j.ijhm.2009.02.003>
-
-Shernoff, D. J., Sannella, A. J., Schorr, R. Y., Sanchez-Wall, L.,
-Ruzek, E. A., Sinha, S., & Bressler, D. M. (2017). Separate worlds: The
-influence of seating location on student engagement, classroom
-experience, and performance in the large university lecture hall.
-Journal of Environmental Psychology, 49, 55-64.
-<doi:10.1016/j.jenvp.2016.12.002>
+B
